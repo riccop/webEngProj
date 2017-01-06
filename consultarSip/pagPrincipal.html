@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Consulta de SIPs</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="consultarEnunciado.js"></script>
+        <script src="consultarAluno.js"></script>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+    </head>
+    <body>
+        <h1>Consulta de SIPs</h1>
+        <form id="myform" action="consultaSip.php" method="get">
+            <fieldset>
+                Selecione a disciplina
+                <select id="disciplina" name="disciplina" onchange="loadEnunciados()">
+                </select>
+                <!-- é necessário o id para tratar no javascript e o name para se receber e tratar no PHP -->
+                <br/><br/>
+                Selecione o Enunciado
+                <select id="enunciado" name="enunciado"></select>
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar"/>
+        </form>
+        <br/>
+        <br/>
+        <form id="myform2" action="consultaSipAluno.php" method="get">
+            <fieldset>
+                Selecione o Aluno
+                <select id="aluno" name="aluno">
+                </select>
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar2"/>
+        </form>
+        <br/>
+
+    </body>
+</html>

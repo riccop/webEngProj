@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remover professores</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="consultarProfessor.js"></script>
+    </head>
+    <body>
+        <h2>Remover professor</h2>
+        <h3>Escolher professor por departamento</h3>            
+        <form id="myform" action="removerProfessor.php" method="get">
+            <fieldset>
+                <input type="hidden" name="form" value="f1" id="f1"/>
+                Selecione o Departamento
+                <select id="departamento" name="departamento" onchange="loadProfs()">
+                </select>
+                
+                <!-- é necessário o id para tratar no javascript e o name para se receber e tratar no PHP -->
+                <br/><br/>
+                Selecione o Professor 
+                <select id="prof" name="prof"></select>    
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar"/>
+        </form>
+        <br/>
+        
+        <h3>Escolher professor</h3> 
+        <form id="myform2" action="removerProfessor.php" method="get">
+            
+            <fieldset>
+                <input type="hidden" name="form" value="f2" id="f2"/>
+                Selecione o Professor 
+                <select id="profLista" name="profLista"></select>    
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar2"/>
+        </form>
+        <br/>
+        
+        <address><a href='index.html'/>Voltar ao início</address>
+        <hr width="80%" align="center"/>
+        <address align="center">EngWeb2015 - projeto final</address>
+    </body>
+</html>

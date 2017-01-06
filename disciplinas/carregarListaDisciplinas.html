@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carregar registos do XML</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="verificaForm.js"></script>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h3>Carregar registos do XML</h3>
+        <form method="post" enctype="multipart/form-data" action="carregarListaDisciplinas.php" onsubmit="return verificarCamposVazios();">
+        Selecione o ficheiro:
+        <input type="file" name="ficheiro"/>
+        <input type="submit" value="enviar"/>
+        </form>
+        <address><a href='pagPrincipalDiscs.html'/>Voltar ao início</address>
+        <hr width="80%" align="center"/>
+        <address align="center">EngWeb2015 - projeto final</address>
+    </body>
+</html>

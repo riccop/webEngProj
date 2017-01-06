@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project-record SYSTEM "file:/D:/Documents/MEGAsync/Documentos/UM/5%C2%BA%20Ano/1%C2%BA%20Semestre/Engenharia%20Web/Exercicios/aula1/SIPoficial.dtd">
+<?xml-stylesheet type="text/xsl" href="pr.xsl"?>
+<project-record>
+    <meta>
+        <keyname>MIETI::ENGWEB::TP6</keyname>
+        <title>Trabalho prático 6</title>
+        <subtitle>Formulário do Project Record</subtitle>
+        <begindate>28 Outubro 2015</begindate>
+        <enddate>3 Novembro 2015</enddate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <url>http://www4.di.uminho.pt/~jcr/</url>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <name>Ivo Miguel Menezes Silva</name>
+            <identifier>65239</identifier>
+            <email>a65239@alunos.uminho.pt</email>
+        </member>
+    </workteam>
+    <abstract>
+        <p>O trabalho para casa desta semana consiste na elaboração do formulario <i>HTML</i> para o  <b>Project Record</b>.</p>
+        <p>O formulário aceita até 4  <b>deliverables</b> e como resposta é gerada a página  <i>HTML</i> com os dados inseridos.</p>
+        <p>Os ficheiros colocados nos <i>deliverables</i> são enviados e armazenados no servidor e podem ser consultados na página gerada na resposta ao formulário.</p>
+    </abstract>
+    <deliverables>
+        <file path="formulario-projectrecord.html">formulario-projectrecord.html</file>
+        <file path="projectrecord.php">projectrecord.php</file>
+        <file path="pr.xml">pr.xml</file>
+    </deliverables>
+</project-record>

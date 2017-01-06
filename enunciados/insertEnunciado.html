@@ -1,0 +1,69 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>Adicionar Enunciado</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="verificaForm.js"></script>
+    </head>
+    <body>
+        <h3>Adicionar Enunciado</h3>
+        <?php if(!enunciadoExiste($_REQUEST['codDisciplina'], $_REQUEST['descricao'])){
+          insertEnunciado(null,$_REQUEST['codDisciplina'],$_REQUEST['datainicio'],$_REQUEST['datafim'],$_REQUEST['descricao']);
+          ?>
+          <p>Enunciado "<?= $_REQUEST['descricao'] ?>" adicionado com sucesso.</p>
+          <table  style='text-align:center;'>
+           <tr>
+             <th>Código Disciplina</th>
+             <th>Data Início</th>
+             <th>Data fim</th>
+             <th>Descrição</th>
+           </tr>
+              <tr><td><?= $_REQUEST['codDisciplina'] ?></td>
+                     <td><?= $_REQUEST['datainicio'] ?></td>
+                     <td><?= $_REQUEST['datafim'] ?></td>
+                     <td><?= $_REQUEST['descricao'] ?></td>
+                     </tr>
+            </table><br/>
+        <?php } else {
+          ?>
+          <p>O enunciado "<?= $_REQUEST['descricao'] ?>" já existe, por favor adicione de novo.</p>
+          <address><a href='selecionarDisciplina.html'>Voltar ao formulário</a></address>
+          <?php } ?>
+          <address><a href='pagPrincipalEnunciados.html'>Voltar ao início</a></address>
+    </body>
+</html>
+
+<?php
+function logMessage($message)
+{
+    echo "<script>console.log('LOG: ".$message."');</script>";
+}
+
+function insertEnunciado($cod_enunciado,$cod_disciplina,$dataini,$datafim,$descricao){
+    $bd = new PDO('mysql:host=localhost;dbname=projetofinal', 'admin', '1234');
+  $query = $bd->prepare("INSERT INTO enunciado VALUES (:codEnunciado, :codUC, :dataInicio, :dataFim, :descricao)");
+    $query->bindValue(":codEnunciado", $cod_enunciado, PDO::PARAM_STR);
+    $query->bindValue(":codUC", $cod_disciplina, PDO::PARAM_STR);
+    $query->bindValue(":dataInicio", $dataini, PDO::PARAM_STR);
+    $query->bindValue(":dataFim", $datafim, PDO::PARAM_STR);
+    $query->bindValue(":descricao", $descricao, PDO::PARAM_STR);
+    $query->execute();
+    $query->closeCursor();
+}
+
+function enunciadoExiste($codDisciplina, $descricao){
+  $bd = new PDO('mysql:host=localhost;dbname=projetofinal', 'admin', '1234');
+  logMessage("COD disciplina: ".$codDisciplina);
+  logMessage("Descricao: ".$descricao);
+
+    $query = $bd->query("SELECT * FROM enunciado WHERE descricao='".$descricao."' AND codUC='".$codDisciplina."'");
+    while ($linha = $query->fetch()){
+                if($linha['descricao']==$descricao){
+                    return true;
+                }
+        }
+        return false;
+}
+?>

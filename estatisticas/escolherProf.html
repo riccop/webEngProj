@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Escolher professor</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="consultarProf.js"></script>
+    </head>
+    <body>
+        <!--  
+        <h2>Alterar aluno</h2>
+        <h3>Escolher disciplina por curso</h3>            
+        <form id="myform" action="f-alterarDisciplina.php" method="get">
+            <fieldset>
+                <input type="hidden" name="form" value="f1" id="f1"/>
+                Selecione o Curso
+                <select id="curso" name="curso" onchange="loadDiscs()">
+                </select>
+                
+                 é necessário o id para tratar no javascript e o name para se receber e tratar no PHP 
+                <br/><br/>
+                Selecione a Disciplina 
+                <select id="disc" name="disc"></select>    
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar"/>
+        </form>
+        <br/>
+        -->
+        <h3>Escolher prof</h3> 
+        <form id="myform2" action="estatisticaProf.php" method="get">
+            <fieldset>
+                <input type="hidden" name="form" value="f2" id="f2"/>
+                Selecione o Professor
+                <select id="profLista" name="profLista"></select>    
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar2"/>
+        </form>
+        <br/>
+        
+        <address><a href='pagPrincipalEstatisticas.html'/>Voltar ao início</address>
+        <hr width="80%" align="center"/>
+        <address align="center">EngWeb2015 - projeto final</address>
+    </body>
+</html>

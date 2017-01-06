@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <title>Submissão de SIP</title>
+    </head>
+    <body>
+        <h3>Submissão de 1 ficheiro ZIP</h3>
+        <!-- ALTERAR o action quando se pretende testar outro ficheiro php -->
+        <form action="processaSIPzip.php" method="post" enctype="multipart/form-data">
+            <label for="ficheiro">Ficheiro: </label>
+            <input type="file" name="ficheiro" id="ficheiro"/>
+            <input type="submit" value="Enviar"/>
+        </form>
+    </body>
+</html>

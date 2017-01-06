@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<professores>
+    <professor>
+        <codigo>wrrgr</codigo>
+        <nome>fsdsfdfds</nome>
+        <departamento>fdsfds</departamento>
+    </professor>
+    
+    <professor>
+        <codigo>123456</codigo>
+        <nome>AntonioXD</nome>
+        <departamento>Arquitetura</departamento>
+    </professor>
+    
+    <professor>
+        <codigo>852</codigo>
+        <nome>Peixe</nome>
+        <departamento>Sistemas de Informação</departamento>
+    </professor>
+    
+<professor><codigo>123456</codigo><nome>Ivo Tone</nome><departamento>Informática</departamento></professor></professores>

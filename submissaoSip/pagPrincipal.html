@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sumissão de SIPs</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <script src="getDisciplinasComEnunciados.js"></script>
+    </head>
+    <body>
+        <h1>Submissão de SIPs</h1>
+        <form id="myform" action="submissaoSIP.php" method="get">
+            <fieldset>
+                <input type="hidden" name="form" value="f1" id="f1"/>
+                Selecione a disciplina
+                <select id="disciplina" name="disciplina" onchange="loadEnunciados()">
+                </select>
+                <!-- é necessário o id para tratar no javascript e o name para se receber e tratar no PHP -->
+                <br/><br/>
+                Selecione o Enunciado
+                <select id="enunciado" name="enunciado"></select>
+            </fieldset>
+            <br/>
+            <input type="button" value="Enviar" id="enviar"/>
+        </form>
+        <br/>
+
+    </body>
+</html>

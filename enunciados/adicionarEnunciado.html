@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>Adicionar Enunciado</title>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <meta charset="UTF-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="verificaForm.js"></script>
+    </head>
+    <body>
+        <h3>Adicionar Enunciado</h3>
+        <form id="myform" action="insertEnunciado.html" method="get" onsubmit="return verificarCamposVazios();">
+          <table>
+            <tr>
+                <td>Código Disciplina</td>
+                <td><input type="text" size="10" name="codDisciplina" value="<?php echo $_REQUEST['disciplina']; ?>" readonly/></td>
+            </tr>
+            <tr>
+                <td>Data Início</td>
+                <td><input type="date" name="datainicio"/></td>
+            </tr>
+            <tr>
+                <td>Data Fim</td>
+                <td><input type="date"  name="datafim"/></td>
+            </tr>
+            <tr>
+                <td>Descrição</td>
+                <td><input type="text" size="50" name="descricao"/></td>
+            </tr>
+          </table>
+            <br/>
+            <input type="submit" value="Enviar" id="enviar"/>
+        </form>
+    </body>
+</html>

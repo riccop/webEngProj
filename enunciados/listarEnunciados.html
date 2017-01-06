@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>Listar Enunciados</title>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+    </head>
+    <body>
+        <h3>Listar Enunciados</h3>
+        <table style='text-align:center;'>
+          <tr>
+            <th>Código Enunciado</th>
+            <th>Código Disciplina</th>
+            <th>Data Início</th>
+            <th>Data Fim</th>
+            <th>Descrição</th>
+            <th>Ops</th>
+          </tr>
+          <?php
+          //fazer ciclo a percorer todos os enunciados com todas as infos e preencher tabela
+          foreach (getEnunciados() as $enunciado) {
+          ?>
+          <tr>
+            <td><?= $enunciado['codEnunciado'] ?></td>
+            <td><?= $enunciado['codUC'] ?></td>
+            <td><?= $enunciado['dataInicio'] ?></td>
+            <td><?=  $enunciado['dataFim'] ?></td>
+            <td><?=  $enunciado['descricao'] ?></td>
+            <td>
+              <a href="alterarEnunciado.html?disciplina=<?= $enunciado['codUC'] ?>&enunciado=<?= $enunciado['codEnunciado']?>">Alterar</a>
+              <a href="removerEnunciado.php?enunciado=<?= $enunciado['codEnunciado'] ?>">Remover</a>
+            </td>
+          </tr>
+          <?php } ?>
+      </table>
+      <br/>
+      <a href='pagPrincipalEnunciados.html'>Voltar ao ínicio</a>
+    </body>
+</html>
+
+<?php
+function getEnunciados(){
+  $bd = new PDO('mysql:host=localhost;dbname=projetofinal', 'admin', '1234');
+  $enunciado=array();
+  $enunciados=array();
+    $query = $bd->query("SELECT * FROM enunciado");
+    while ($linha = $query->fetch()){
+            $enunciado['codEnunciado'] =  $linha['codEnunciado'];
+            $enunciado['codUC'] =  $linha['codUC'];
+            $enunciado['dataInicio'] =  $linha['dataInicio'];
+            $enunciado['dataFim'] =  $linha['dataFim'];
+            $enunciado['descricao'] =  $linha['descricao'];
+            $enunciados[ $linha['codEnunciado']]=$enunciado;
+        }
+        return $enunciados;
+}
+
+?>

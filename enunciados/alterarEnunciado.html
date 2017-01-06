@@ -1,0 +1,64 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>Alterar Enunciado</title>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <meta charset="UTF-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="verificaForm.js"></script>
+    </head>
+    <body>
+        <h3>Alterar Enunciado</h3>
+        <form id="myform" action="alterarEnunciado2.html" method="get" onsubmit="return verificarCamposVazios();">
+          <table>
+            <tr>
+                <td>Código Disciplina</td>
+                <td><input type="text" size="10" name="codDisciplina" value="<?= getEnunciado($_REQUEST['enunciado'])['codUC'] ?>" readonly/></td>
+            </tr>
+            <tr>
+                <td>Data Início</td>
+                <td><input type="date" name="datainicio" value="<?= getEnunciado($_REQUEST['enunciado'])['dataInicio'] ?>"/></td>
+            </tr>
+            <tr>
+                <td>Data Fim</td>
+                <td><input type="date"  name="datafim" value="<?= getEnunciado($_REQUEST['enunciado'])['dataFim'] ?>"/></td>
+            </tr>
+            <tr>
+                <td>Descrição</td>
+                <td><input type="text" size="50" name="descricao" value="<?= getEnunciado($_REQUEST['enunciado'])['descricao'] ?>"/></td>
+            </tr>
+          </table>
+            <br/>
+            <input type="submit" value="Enviar" id="enviar"/>
+        </form>
+    </body>
+</html>
+<?php
+function getEnunciado($codEnunciado){
+  $bd = new PDO('mysql:host=localhost;dbname=projetofinal', 'admin', '1234');
+  $enunciado=array();
+    $query = $bd->query("SELECT * FROM enunciado WHERE codEnunciado='".$codEnunciado."'");
+    while ($linha = $query->fetch()){
+            $enunciado['codEnunciado'] =  $linha['codEnunciado'];
+            $enunciado['codUC'] =  $linha['codUC'];
+            $enunciado['dataInicio'] =  $linha['dataInicio'];
+            $enunciado['dataFim'] =  $linha['dataFim'];
+            $enunciado['descricao'] =  $linha['descricao'];
+        }
+        return $enunciado;
+      }
+
+function enunciadoExiste($codDisciplina, $descricao){
+  $bd = new PDO('mysql:host=localhost;dbname=projetofinal', 'admin', '1234');
+  logMessage("COD disciplina: ".$codDisciplina);
+  logMessage("Descricao: ".$descricao);
+
+    $query = $bd->query("SELECT * FROM enunciado WHERE descricao='".$descricao."' AND codUC='".$codDisciplina."'");
+    while ($linha = $query->fetch()){
+                if($linha['descricao']==$descricao){
+                    return true;
+                }
+        }
+        return false;
+}
+?>

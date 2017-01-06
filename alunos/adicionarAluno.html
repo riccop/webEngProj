@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adicionar Aluno</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="verificaForm.js"></script>
+        <link rel="stylesheet" type="text/css" href="mystyles.css">
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h3>Adicionar Aluno</h3>
+        <form action="adicionarAluno.php" method="get" onsubmit="return verificarCamposVazios();">
+            <table>
+                <tr>
+                    <td>Código</td>
+                    <td><input type="text" size="10" name="codigo"/></td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td><input type="text" size="60" name="nome"/></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" size="40" name="email"/></td>
+                </tr>
+            </table>
+            <input type="submit" value="Enviar"/>
+        </form>
+        <address><a href='pagPrincipalAlunos.html'/>Voltar ao início</address>
+        <hr width="80%" align="center"/>
+        <address align="center">EngWeb2015 - projeto final</address>
+    </body>
+</html>
